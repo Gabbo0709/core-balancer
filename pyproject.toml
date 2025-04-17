@@ -1,0 +1,185 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "core-balancer"
+version = "0.1.0"
+description = "Linear Programming-based system for production planning and supply management optimization"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [
+    { name = "Gabriel Arcos Martínez", email = "gabriel.arcosm@gmail.com" },
+    { name = "Eric Gustavo González García", email = "e.gus.gg@gmail.com"},
+    { name = "Valente Arturo Cárdenas Lara"},
+    { name = "César Alberto Rodríguez Pacheco" },
+    { name = "Andrea Gónzalez Rebul" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Environment :: Console",
+    "Environment :: Desktop",
+]
+keywords = [
+    "linear programming",
+    "optimization",
+    "production planning",
+    "supply chain management",
+    "operations research",
+    "mathematical optimization",
+    "supply chain optimization",
+    "resource allocation",
+    "decision support systems",
+    "pyqt5",
+    "pandas",
+    "numpy",
+    "pulp",
+    "gurobi",
+    "keras",
+    "tensorflow"
+]
+
+dependencies = [
+    "pandas >= 2.2.0",
+    "PuLP >= 3.0.0",
+    # "gurobi >= 10.0.0",
+    "PyQt5 >= 5.15.0",
+    "openpyxl >= 3.1.0",
+    "numpy >= 2.0.0",
+]
+
+# Optional dependencies
+# These dependencies are not required for the core functionality of the package,
+# but are needed for specific development tasks or features.
+[project.optional-dependencies]
+# Base dependencies for development
+# These dependencies are required for development and testing.
+base = [
+    "pytest >= 8.3.0",
+    "flake8",
+    "black",
+    "isort",
+    "mypy",
+]
+# Optional dependencies for advanced testing
+testing = [
+    "pytest-cov",
+    "pandera",
+    "hypothesis",
+    "faker",
+    "pytest-asyncio",
+]
+# Dependencies for data analysis and exploration
+analysis = [
+    "jupyterlab",
+    "matplotlib",
+    "seaborn",
+    "plotly",
+    "scipy",
+    "statsmodels",
+]
+# Dependencies for machine learning and deep learning (if needed)
+ml = [
+    "tensorflow >= 2.0.0",
+    "keras >= 3.0.0",
+    "scikit-learn >= 1.0.0",
+]
+# Dependencies for forecasting and time series analysis
+forecasting = [
+    "statsmodels >= 0.14.0",
+    "prophet >= 1.0.0",
+    "pmdarima >= 2.0.0",
+]
+# Dependencies for UI development
+ui = [
+    "pytest-qt >= 4.0.0",
+    "pyqtgraph >= 0.12.0",
+]
+# Dependencies for database interaction (if needed)
+database = [
+    "SQLAlchemy >= 2.0.0",
+    "pymysql >= 1.0.0",
+    "pymongo >= 4.0.0",
+]
+# Dependencies for documentation generation
+docs = [
+    "sphinx >= 8.3.0",
+    "sphinx-rtd-theme >= 3.0.0",
+    "nbsphinx >= 0.8.0",
+    "sphinx-autodoc-typehints >= 3.0.0",
+]
+# General development dependency group
+dev = [
+    "core-balancer[base]",
+    "core-balancer[testing]",
+    "core-balancer[ui]",
+]
+# General data analysis dependency group
+data = [
+    "core-balancer[analysis]",
+    "core-balancer[ml]",
+    "core-balancer[forecasting]",
+    "core-balancer[database]",
+]
+# All optional dependencies
+all = [
+    "core-balancer[base]",
+    "core-balancer[testing]",
+    "core-balancer[analysis]",
+    "core-balancer[ml]",
+    "core-balancer[forecasting]",
+    "core-balancer[ui]",
+    "core-balancer[database]",
+    "core-balancer[docs]"
+]
+
+[project.gui-scripts]
+# Entry point for the GUI application
+# Consider the CORE-Balancer/src/core_balancer/gui/main.py file as the main entry point for the GUI application.
+core-balancer-gui = "core_balancer.gui.main:main"
+
+# TODO Setup the URLs for the project
+[project.urls]
+# URL for the project repository
+repository = "https://github.com/Gabbo0709/core-balancer"
+# URL for the project documentation
+documentation = "https://core-balancer.readthedocs.io/"
+
+[tool.setuptools]
+# This section is used to configure setuptools for building the package.
+# It specifies the package directory and any additional options needed for building.
+package-dir = { "" = "src" }
+packages = ["core_balancer"]
+
+[tool.black]
+# Black is a code formatter for Python. This section configures its behavior.
+line-length = 88
+
+[tool.isort]
+# isort is a tool for sorting imports in Python files. This section configures its behavior.
+profile = "black"
+line_length = 88
+
+[tool.pytest.ini_options]
+# This section configures pytest, a testing framework for Python.
+minversion = "6.0"
+addopts = "-ra -q --cov=core_balancer --cov-report=term-missing --cov-report=html:coverage_html_report"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.mypy]
+# This section configures mypy, a static type checker for Python.
+files = "src/core_balancer"
+ignore_missing_imports = true
+warn_return_any = false
+python_version = "3.12"
