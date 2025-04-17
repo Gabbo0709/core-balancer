@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Linear Programming-based system for production planning and supply management optimization"
 readme = "README.md"
 requires-python = ">=3.12"
-license = { text = "MIT" }
+license = "MIT"
 authors = [
     { name = "Gabriel Arcos Martínez", email = "gabriel.arcosm@gmail.com" },
     { name = "Eric Gustavo González García", email = "e.gus.gg@gmail.com"},
@@ -19,7 +19,6 @@ authors = [
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.12",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -90,7 +89,7 @@ analysis = [
 ]
 # Dependencies for machine learning and deep learning (if needed)
 ml = [
-    "tensorflow >= 2.0.0",
+    "tensorflow",
     "keras >= 3.0.0",
     "scikit-learn >= 1.0.0",
 ]
@@ -113,7 +112,7 @@ database = [
 ]
 # Dependencies for documentation generation
 docs = [
-    "sphinx >= 8.3.0",
+    "sphinx >= 8.2.0",
     "sphinx-rtd-theme >= 3.0.0",
     "nbsphinx >= 0.8.0",
     "sphinx-autodoc-typehints >= 3.0.0",
