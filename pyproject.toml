@@ -55,6 +55,7 @@ dependencies = [
     "PyQt5 >= 5.15.0",
     "openpyxl >= 3.1.0",
     "numpy >= 2.0.0",
+    "pyyaml >= 6.0.0",
 ]
 
 # Optional dependencies
@@ -125,6 +126,7 @@ dev = [
 ]
 # General data analysis dependency group
 data = [
+    "core-balancer[base]",
     "core-balancer[analysis]",
     "core-balancer[ml]",
     "core-balancer[forecasting]",
